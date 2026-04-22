@@ -1,174 +1,183 @@
-Here is the updated HTML with the revised goals for the Urdu and Arabic pages. 
-
-To keep your report mathematically accurate, I also recalculated the **growth percentages** for those two specific rows and updated the **overall network totals** (Hero section, Total row, and the bottom Note) to reflect the 1.5M reduction in your overall goal.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>May–July 2026 Goals — Based on Meta Insights</title>
+<title>May–July 2026 Network Goals</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', Tahoma, sans-serif; background: #0a0a14; color: #e0e0e0; min-height: 100vh; padding: 20px 16px; }
-.wrap { max-width: 620px; margin: 0 auto; }
+.wrap { max-width: 640px; margin: 0 auto; }
 .title { text-align: center; margin-bottom: 20px; }
-.title h1 { font-size: 20px; font-weight: 700; color: #fff; margin: 0 0 4px; }
+.title h1 { font-size: 22px; font-weight: 700; color: #fff; margin: 0 0 4px; }
 .title p { color: #666; font-size: 12px; }
 
-.hero { background: linear-gradient(135deg, #0d2a1a 0%, #1a0d2a 100%); border: 1px solid #22c55e30; border-radius: 14px; padding: 20px; text-align: center; margin-bottom: 16px; }
-.hero-label { font-size: 11px; color: #4ade80; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
-.hero-num { font-size: 42px; font-weight: 700; color: #fff; line-height: 1; }
-.hero-sub { font-size: 12px; color: #888; margin-top: 6px; }
+/* Hero card */
+.hero { background: linear-gradient(135deg, #0d2a1a 0%, #1a0d2a 50%, #0d1a2a 100%); border: 1px solid #22c55e30; border-radius: 16px; padding: 24px; text-align: center; margin-bottom: 20px; }
+.hero-label { font-size: 11px; color: #4ade80; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+.hero-num { font-size: 52px; font-weight: 700; color: #fff; line-height: 1; }
+.hero-sub { font-size: 13px; color: #999; margin-top: 8px; }
 
+/* Split hero */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px; }
+.split-card { background: #12121e; border-radius: 12px; padding: 16px; text-align: center; }
+.split-card.ig { border: 1px solid #ec489930; }
+.split-card.fb { border: 1px solid #1877f230; }
+.split-label { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+.split-card.ig .split-label { color: #ec4899; }
+.split-card.fb .split-label { color: #60a5fa; }
+.split-num { font-size: 28px; font-weight: 700; color: #fff; line-height: 1; }
+.split-sub { font-size: 11px; color: #777; margin-top: 4px; }
+
+/* Tabs */
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+.tab { padding: 12px; background: #12121e; border: 1px solid #1a1a2e; border-radius: 10px; color: #888; font-size: 13px; font-weight: 600; cursor: pointer; text-align: center; transition: all 0.2s; }
+.tab.active { background: #1a1a2e; color: #fff; }
+.tab.ig.active { border-color: #ec4899; color: #ec4899; }
+.tab.fb.active { border-color: #60a5fa; color: #60a5fa; }
+
+/* Table */
+.panel { display: none; }
+.panel.active { display: block; }
 .grid { display: grid; grid-template-columns: 130px 1fr 1fr 1fr; }
 .head { padding: 8px 0; border-bottom: 2px solid #333; }
 .head-label { font-size: 12px; color: #888; font-weight: 600; }
 .head-col { text-align: center; font-size: 12px; font-weight: 600; padding: 2px; }
 .head-col span { font-weight: 400; font-size: 10px; display: block; margin-top: 2px; }
 .head-now { color: #888; }
-.head-goal { color: #4ade80; }
+.head-goal.ig { color: #ec4899; }
+.head-goal.fb { color: #60a5fa; }
 
 .row { padding: 12px 0; border-bottom: 1px solid #1a1a2e; align-items: center; }
 .name { font-size: 14px; font-weight: 600; color: #fff; }
 .val { text-align: center; padding: 12px 4px; }
 .dim { font-size: 15px; font-weight: 600; color: #999; }
-.grn { font-size: 15px; font-weight: 600; color: #4ade80; }
-.grw { font-size: 10px; color: #4ade8080; margin-top: 2px; }
+.grn { font-size: 15px; font-weight: 600; color: #ec4899; }
+.blu { font-size: 15px; font-weight: 600; color: #60a5fa; }
+.grw { font-size: 10px; margin-top: 2px; }
+.grw.ig { color: #ec489980; }
+.grw.fb { color: #60a5fa80; }
 
 .total-row { padding: 14px 0; border-top: 2px solid #333; align-items: center; }
-.total-name { font-size: 14px; font-weight: 700; color: #4ade80; }
+.total-name { font-size: 14px; font-weight: 700; }
+.total-name.ig { color: #ec4899; }
+.total-name.fb { color: #60a5fa; }
 .total-val { font-size: 16px; }
+
 .note { background: #12121e; border-radius: 10px; padding: 14px; margin-top: 16px; font-size: 12px; color: #aaa; line-height: 1.7; }
 .note strong { color: #fff; }
-.footer { text-align: center; padding: 16px 0 8px; font-size: 10px; color: #333; }
-
-.report-section { margin-top: 24px; background: #12121e; border-radius: 12px; padding: 16px; }
-.report-title { font-size: 15px; font-weight: 700; color: #fff; text-align: center; margin-bottom: 4px; }
-.report-sub { font-size: 11px; color: #888; text-align: center; margin-bottom: 12px; }
-.report-img { width: 100%; height: auto; border-radius: 6px; display: block; }
+.footer { text-align: center; padding: 20px 0 8px; font-size: 10px; color: #333; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
   <div class="title">
-    <h1>May–July 2026 Instagram Goal</h1>
-    <p>Based on Meta Insights · Includes Reels + Posts + Stories</p>
+    <h1>May–July 2026 Network Goals</h1>
+    <p>Instagram + Facebook · 22 pages · 11 languages</p>
   </div>
 
+  <!-- Combined hero -->
   <div class="hero">
-    <div class="hero-label">3-month network goal</div>
-    <div class="hero-num">21.8M</div>
-    <div class="hero-sub">total views across all 11 pages</div>
+    <div class="hero-label">3-month combined goal</div>
+    <div class="hero-num">31.8M</div>
+    <div class="hero-sub">total views across Instagram + Facebook</div>
   </div>
 
-  <div class="grid head">
-    <div class="head-label">Account</div>
-    <div class="head-col head-now">Jan–Apr 10<span>actual</span></div>
-    <div class="head-col head-goal">May–Jul<span>goal</span></div>
-    <div class="head-col head-goal">Growth<span>%</span></div>
+  <!-- Split view -->
+  <div class="split">
+    <div class="split-card ig">
+      <div class="split-label">📷 Instagram</div>
+      <div class="split-num">21.8M</div>
+      <div class="split-sub">+15% from Q1</div>
+    </div>
+    <div class="split-card fb">
+      <div class="split-label">📘 Facebook</div>
+      <div class="split-num">10M</div>
+      <div class="split-sub">+14% from Q1</div>
+    </div>
   </div>
 
-  <div class="grid row">
-    <div class="name">🇺🇿 Uzbek</div>
-    <div class="val"><div class="dim">9.3M</div></div>
-    <div class="val"><div class="grn">10M</div></div>
-    <div class="val"><div class="grw">+8%</div></div>
+  <!-- Tabs -->
+  <div class="tabs">
+    <div class="tab ig active" onclick="show('ig')">📷 Instagram Breakdown</div>
+    <div class="tab fb" onclick="show('fb')">📘 Facebook Breakdown</div>
   </div>
 
-  <div class="grid row">
-    <div class="name">🇮🇷 Persian</div>
-    <div class="val"><div class="dim">2.9M</div></div>
-    <div class="val"><div class="grn">3.2M</div></div>
-    <div class="val"><div class="grw">+10%</div></div>
+  <!-- Instagram panel -->
+  <div class="panel active" id="panel-ig">
+    <div class="grid head">
+      <div class="head-label">Account</div>
+      <div class="head-col head-now">Jan–Apr 10<span>actual</span></div>
+      <div class="head-col head-goal ig">May–Jul<span>goal</span></div>
+      <div class="head-col head-goal ig">Growth<span>%</span></div>
+    </div>
+
+    <div class="grid row"><div class="name">🇺🇿 Uzbek</div><div class="val"><div class="dim">9.3M</div></div><div class="val"><div class="grn">10M</div></div><div class="val"><div class="grw ig">+8%</div></div></div>
+    <div class="grid row"><div class="name">🇮🇷 Persian</div><div class="val"><div class="dim">2.9M</div></div><div class="val"><div class="grn">3.2M</div></div><div class="val"><div class="grw ig">+10%</div></div></div>
+    <div class="grid row"><div class="name">🇵🇰 Urdu</div><div class="val"><div class="dim">2.8M</div></div><div class="val"><div class="grn">3M</div></div><div class="val"><div class="grw ig">+7%</div></div></div>
+    <div class="grid row"><div class="name">🇷🇺 Russian</div><div class="val"><div class="dim">1.7M</div></div><div class="val"><div class="grn">2M</div></div><div class="val"><div class="grw ig">+18%</div></div></div>
+    <div class="grid row"><div class="name">🇧🇩 Bangla</div><div class="val"><div class="dim">1M</div></div><div class="val"><div class="grn">1.25M</div></div><div class="val"><div class="grw ig">+25%</div></div></div>
+    <div class="grid row"><div class="name">🌍 Arabic</div><div class="val"><div class="dim">675K</div></div><div class="val"><div class="grn">1M</div></div><div class="val"><div class="grw ig">+48%</div></div></div>
+    <div class="grid row"><div class="name">🇮🇳 Hindi</div><div class="val"><div class="dim">415K</div></div><div class="val"><div class="grn">1M</div></div><div class="val"><div class="grw ig">+141%</div></div></div>
+    <div class="grid row"><div class="name">🇩🇪 Deutsch</div><div class="val"><div class="dim">144K</div></div><div class="val"><div class="grn">170K</div></div><div class="val"><div class="grw ig">+18%</div></div></div>
+    <div class="grid row"><div class="name">🇫🇷 Français</div><div class="val"><div class="dim">32K</div></div><div class="val"><div class="grn">52K</div></div><div class="val"><div class="grw ig">+63%</div></div></div>
+    <div class="grid row"><div class="name">🇪🇸 Español</div><div class="val"><div class="dim">18K</div></div><div class="val"><div class="grn">31K</div></div><div class="val"><div class="grw ig">+72%</div></div></div>
+    <div class="grid row"><div class="name">🇮🇩 Indonesian</div><div class="val"><div class="dim">–</div></div><div class="val"><div class="grn">50K</div></div><div class="val"><div class="grw ig">new page</div></div></div>
+
+    <div class="grid total-row">
+      <div class="total-name ig">Instagram total</div>
+      <div class="val"><div class="dim total-val">19M</div></div>
+      <div class="val"><div class="grn total-val">21.8M</div></div>
+      <div class="val"><div class="grw ig">+15%</div></div>
+    </div>
   </div>
 
-  <div class="grid row">
-    <div class="name">🇵🇰 Urdu</div>
-    <div class="val"><div class="dim">2.8M</div></div>
-    <div class="val"><div class="grn">3M</div></div>
-    <div class="val"><div class="grw">+7%</div></div>
-  </div>
+  <!-- Facebook panel -->
+  <div class="panel" id="panel-fb">
+    <div class="grid head">
+      <div class="head-label">Account</div>
+      <div class="head-col head-now">Jan–Apr 10<span>actual</span></div>
+      <div class="head-col head-goal fb">May–Jul<span>goal</span></div>
+      <div class="head-col head-goal fb">Growth<span>%</span></div>
+    </div>
 
-  <div class="grid row">
-    <div class="name">🇷🇺 Russian</div>
-    <div class="val"><div class="dim">1.7M</div></div>
-    <div class="val"><div class="grn">2M</div></div>
-    <div class="val"><div class="grw">+18%</div></div>
-  </div>
+    <div class="grid row"><div class="name">🇧🇩 Bangla</div><div class="val"><div class="dim">2.8M</div></div><div class="val"><div class="blu">3M</div></div><div class="val"><div class="grw fb">+7%</div></div></div>
+    <div class="grid row"><div class="name">🇵🇰 Urdu</div><div class="val"><div class="dim">2.7M</div></div><div class="val"><div class="blu">3M</div></div><div class="val"><div class="grw fb">+11%</div></div></div>
+    <div class="grid row"><div class="name">🇮🇷 Persian</div><div class="val"><div class="dim">1.5M</div></div><div class="val"><div class="blu">1.8M</div></div><div class="val"><div class="grw fb">+20%</div></div></div>
+    <div class="grid row"><div class="name">🌍 Arabic</div><div class="val"><div class="dim">1M</div></div><div class="val"><div class="blu">1.2M</div></div><div class="val"><div class="grw fb">+20%</div></div></div>
+    <div class="grid row"><div class="name">🇮🇳 Hindi</div><div class="val"><div class="dim">753K</div></div><div class="val"><div class="blu">1M</div></div><div class="val"><div class="grw fb">+33%</div></div></div>
+    <div class="grid row"><div class="name">🇺🇿 Uzbek</div><div class="val"><div class="dim">526K</div></div><div class="val"><div class="blu">650K</div></div><div class="val"><div class="grw fb">+24%</div></div></div>
+    <div class="grid row"><div class="name">🇫🇷 Français</div><div class="val"><div class="dim">11.7K</div></div><div class="val"><div class="blu">15K</div></div><div class="val"><div class="grw fb">+28%</div></div></div>
+    <div class="grid row"><div class="name">🇪🇸 Español</div><div class="val"><div class="dim">9.7K</div></div><div class="val"><div class="blu">13K</div></div><div class="val"><div class="grw fb">+34%</div></div></div>
+    <div class="grid row"><div class="name">🇩🇪 Deutsch</div><div class="val"><div class="dim">1.4K</div></div><div class="val"><div class="blu">2K</div></div><div class="val"><div class="grw fb">+43%</div></div></div>
+    <div class="grid row"><div class="name">🇷🇺 Russian</div><div class="val"><div class="dim">585</div></div><div class="val"><div class="blu">1K</div></div><div class="val"><div class="grw fb">+71%</div></div></div>
+    <div class="grid row"><div class="name">🇮🇩 Indonesian</div><div class="val"><div class="dim">–</div></div><div class="val"><div class="blu">2K</div></div><div class="val"><div class="grw fb">new page</div></div></div>
 
-  <div class="grid row">
-    <div class="name">🇧🇩 Bangla</div>
-    <div class="val"><div class="dim">1M</div></div>
-    <div class="val"><div class="grn">1.25M</div></div>
-    <div class="val"><div class="grw">+25%</div></div>
-  </div>
-
-  <div class="grid row">
-    <div class="name">🌍 Arabic</div>
-    <div class="val"><div class="dim">675K</div></div>
-    <div class="val"><div class="grn">1M</div></div>
-    <div class="val"><div class="grw">+48%</div></div>
-  </div>
-
-  <div class="grid row">
-    <div class="name">🇮🇳 Hindi</div>
-    <div class="val"><div class="dim">415K</div></div>
-    <div class="val"><div class="grn">1M</div></div>
-    <div class="val"><div class="grw">+141%</div></div>
-  </div>
-
-  <div class="grid row">
-    <div class="name">🇩🇪 Deutsch</div>
-    <div class="val"><div class="dim">144K</div></div>
-    <div class="val"><div class="grn">170K</div></div>
-    <div class="val"><div class="grw">+18%</div></div>
-  </div>
-
-  <div class="grid row">
-    <div class="name">🇫🇷 Français</div>
-    <div class="val"><div class="dim">32K</div></div>
-    <div class="val"><div class="grn">52K</div></div>
-    <div class="val"><div class="grw">+63%</div></div>
-  </div>
-
-  <div class="grid row">
-    <div class="name">🇪🇸 Español</div>
-    <div class="val"><div class="dim">18K</div></div>
-    <div class="val"><div class="grn">31K</div></div>
-    <div class="val"><div class="grw">+72%</div></div>
-  </div>
-
-  <div class="grid row">
-    <div class="name">🇮🇩 Indonesian</div>
-    <div class="val"><div class="dim">–</div></div>
-    <div class="val"><div class="grn">50K</div></div>
-    <div class="val"><div class="grw">new page</div></div>
-  </div>
-
-  <div class="grid total-row">
-    <div class="total-name">Total network</div>
-    <div class="val"><div class="dim total-val">19M</div></div>
-    <div class="val"><div class="grn total-val">21.8M</div></div>
-    <div class="val"><div class="grw">+15%</div></div>
+    <div class="grid total-row">
+      <div class="total-name fb">Facebook total</div>
+      <div class="val"><div class="dim total-val">8.8M</div></div>
+      <div class="val"><div class="blu total-val">10M</div></div>
+      <div class="val"><div class="grw fb">+14%</div></div>
+    </div>
   </div>
 
   <div class="note">
-    <strong>These goals are very easy.</strong> Each page only needs to grow 8–22% from the last 3 months — basically just maintaining current performance with a small lift. Network goal is 21.8M total views across all 11 pages combined. Old post views still count toward this number.
+    <strong>These goals are very achievable.</strong> Each page needs 7–48% growth from the last 3 months — mostly maintaining current performance with a small lift. Instagram and Facebook are tracked separately because they are different audiences. Old post views still count toward both totals.
   </div>
 
-  
-  <div class="report-section">
-    <div class="report-title">Jan 1 – April 10 Performance Report</div>
-    <div class="report-sub">Actual results vs previous quarter targets</div>
-    <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAlkZXNjAAAA8AAAACRyWFlaAAABFAAAABRnWFlaAAABKAAAABRiWFlaAAABPAAAABR3dHB0AAABUAAAABRyVFJDAAABZAAAAChnVFJDAAABZAAAAChiVFJDAAABZAAAAChjcHJ0AAABjAAAADxtbHVjAAAAAAAAAAEAAAAMZW5VUwAAAAgAAAAcAHMAUgBHAEJYWVogAAAAAAAAb6IAADj1AAADkFhZWiAAAAAAAABimQAAt4UAABjaWFlaIAAAAAAAACSgAAAPhAAAts9YWVogAAAAAAAA9tYAAQAAAADTLXBhcmEAAAAAAAQAAAACZmYAAPKnAAANWQAAE9AAAApbAAAAAAAAAABtbHVjAAAAAAAAAAEAAAAMZW5VUwAAACAAAAAcAEcAbwBvAGcAbABlACAASQBuAGMALgAgADIAMAAxADb/2wBDAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx7/2wBDAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh7/wAARCAL8BMwDASIAAhEBAxEB/8QAHQABAAMBAQEBAQEAAAAAAAAAAAYHCAUEAgMBCf/EAHIQAAAEAwIGCQsPBQwIAwYEBwACAwQBBQYHEhETFyJX0ggUFiExMlilphVBQlJWYoKWs9HTGCM2NzhRYXFygYWSlbK0M4ORosIJNDVUVXN0dZSho6QkQ1N2k7Hi8CUowTljZITD8kRFZYbU4SbER2bx/8QAGwEBAAIDAQEAAAAAAAAAAAAAAAMEAgUGBwH/xABCEQABAwEDCAYJAwMEAwADAAAAAQIDBBESUgUTFBVRU7HRITFhcaGiBhYiMjM0QZHBI4HhQnLwF1SS8SQ1YiVDgv/aAAwDAQACEQMRAD8An7tK0WV1TNJjSUMU2fYq+f8A0c1+4S6XNPxc4xh+nVm3H+NR+qy8wnrOP+jlgP0+cfHelUsTs26GN1nRaqdPR0bSePIUUjb+celvT17f2K+6tW5fxo31WXmDq1bl/GjfVZeYWEAw9bpP9tH/AMf5JPV6Lev+/wDBXvVq3L+NG+qy8wdWrcv40b6rLzCwgD1uk/20f/H+R6vRb1/3/gr3q1bl/GjfVZeYOrVuX8aN9Vl5hYQB63Sf7aP/AI/yPV6Lev8Av/BXvVq3L+NG+qy8wdWrcv40b6rLzCwgD1uk/wBtH/x/ker0W9f9/wCCverVuX8aN9Vl5g6tWrcv40b6rLzCwgD1uk/20f8Ax/ker0W9f9/wbx/42/43" alt="Performance Report" class="report-img">
-  </div>
-
-  <div class="footer">Towards Eternity · May–July 2026 · Instagram Goal</div>
+  <div class="footer">Towards Eternity · May–July 2026 · Network Goal 31.8M</div>
 
 </div>
+
+<script>
+function show(which) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelector('.tab.' + which).classList.add('active');
+  document.getElementById('panel-' + which).classList.add('active');
+}
+</script>
+
 </body>
 </html>
-```
